@@ -107,8 +107,11 @@ end
 
 # 9
 
-(1..5).each do |i|
+i = 1
+
+until i > 5
   puts (1..i).to_a.join(" ")
+  i += 1
 end
 
 # 10
