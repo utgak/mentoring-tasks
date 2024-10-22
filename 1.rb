@@ -300,11 +300,7 @@ print_number_pyramid(number)
 # 15
 
 def leap_year?(year)
-  if (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
-    true
-  else
-    false
-  end
+  (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
 end
 
 [1999, 1000, 1600, 1700, 2000, 2024, 2100].each {|y| puts y.to_s + ' ' + leap_year?(y).to_s }
