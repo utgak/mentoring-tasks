@@ -491,6 +491,32 @@ input_string = "aaabbccddddeeefffggghhh"
 result = longest_letter_sequence(input_string).join
 puts "Longest letter subsequence: '#{result}'"
 
+# 26
+
+def each_three_chars(string)
+  (0...string.length).step(3) do |i|
+    yield(string[i, 3])
+  end
+end
+
+string = "abcdefghijk"
+each_three_chars(string) do |group|
+  puts group
+end
+
+def each_three(array)
+  (0...array.length).step(3) do |i|
+    yield(array[i, 3])
+  end
+end
+
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+each_three(array) do |group|
+  puts group
+end
+
+
+
 # 27
 
 def play_game
@@ -555,7 +581,6 @@ end
 def number_guessing_game
   secret_number = rand(1..100)
   attempts = 3
-  guessed = false
 
   puts "Guess a number between 1 and 100. You have 3 attempts."
 
@@ -564,9 +589,7 @@ def number_guessing_game
     guess = gets.to_i
 
     if guess == secret_number
-      puts "Congratulations! You guessed the number #{secret_number}!"
-      guessed = true
-      break
+      return puts "Congratulations! You guessed the number #{secret_number}!"
     elsif guess < secret_number
       puts "Higher!"
     else
@@ -574,7 +597,7 @@ def number_guessing_game
     end
   end
 
-  puts "You've run out of attempts. The secret number was #{secret_number}." unless guessed
+  return puts "You've run out of attempts. The secret number was #{secret_number}."
 end
 
 number_guessing_game
