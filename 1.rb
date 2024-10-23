@@ -570,11 +570,35 @@ boom(input_number)
 # 29
 
 def calculator(a, b, operator)
-  return unless %w[+ - * % /].include? operator
+  return unless %w[+ - * % /].include?(operator)
 
-  result = a.to_f.public_send(operator, b.to_f)
-  puts a.to_s + operator + b.to_s + '=' + result.to_s
+  result = 0.0
+  a = a.to_f
+  b = b.to_f
+
+  if operator == '+'
+    result = a + b
+  elsif operator == '-'
+    result = a - b
+  elsif operator == '*'
+    result = a * b
+  elsif operator == '/'
+    return "Ошибка: Деление на ноль" if b == 0
+    result = a / b
+  elsif operator == '%'
+    return "Ошибка: Деление на ноль" if b == 0
+    result = a % b
+  end
+
+  puts "#{a} #{operator} #{b} = #{result}"
 end
+
+calculator(10, 5, '+')
+calculator(10, 5, '-')
+calculator(10, 5, '*')
+calculator(10, 5, '/')
+calculator(10, 5, '%')
+calculator(10, 0, '/')
 
 # 30
 
