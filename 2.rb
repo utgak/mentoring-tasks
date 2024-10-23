@@ -165,26 +165,6 @@ else
   puts "Ошибка: файл '#{file_name}' не найден."
 end
 
-# 7
-
-puts "Введите имя файла (с расширением):"
-file_name = gets.chomp
-
-if File.exist?(file_name)
-  puts "Файл '#{file_name}' существует."
-  puts "Вы хотите удалить этот файл? (да/нет)"
-  choice = gets.chomp.downcase
-
-  if choice == 'да'
-    File.delete(file_name)
-    puts "Файл '#{file_name}' был успешно удален."
-  else
-    puts "Файл '#{file_name}' не был удален."
-  end
-else
-  puts "Ошибка: файл '#{file_name}' не найден."
-end
-
 # 8
 
 puts "Введите имя исходного файла:"
