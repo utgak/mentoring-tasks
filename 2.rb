@@ -267,6 +267,6 @@ def play_game
 
     puts "Хотите сыграть еще раз?\n1. Да\n2. Нет"
     play_again = gets.chomp
-    return unless play_again == '1'
+    exit unless play_again == '1'
   end
 end
